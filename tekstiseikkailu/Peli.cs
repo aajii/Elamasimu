@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Elamasimu
 {
+    /// <summary>
+    /// Peliluokka.
+    /// </summary>
     public class Peli
     {
         public List<Paikka> paikat;
