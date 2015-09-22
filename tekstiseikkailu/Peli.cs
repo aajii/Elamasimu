@@ -42,6 +42,7 @@ namespace Elamasimu
                 }
                 Console.WriteLine("Onneksi olkoon, olet täydellisen onnellinen!");
             }
+        }
 
         private void ToteutaAktiviteetti(Aktiviteetti aktiviteetti)
         {
