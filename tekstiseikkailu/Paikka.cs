@@ -9,7 +9,7 @@ namespace Elamasimu
         /// <summary>
         /// Mitä kirjainta painamalla pääsee paikkaan
         /// </summary>
-        public char lyhytvalinta;
+        public char lyhytvalinta; // TODO: Ei pitäisi sekoittaa kontrollien toimintaa tähän. Paranna.
 
         public int maxAika;
         
@@ -21,7 +21,10 @@ namespace Elamasimu
         /// </summary>
         public bool pitaakoPaikkaanHakea;
 
-        public List<Aktiviteetti> aktiviteetit;
+        /// <summary>
+        /// Mitä painamalla pääsee mihinkin aktiviteettiin.
+        /// </summary>
+        public Dictionary<char, Aktiviteetti> lyhytValinnatJaAktiviteetit;
     }
 
 }

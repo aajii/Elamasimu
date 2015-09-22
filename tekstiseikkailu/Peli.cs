@@ -11,11 +11,11 @@ namespace Elamasimu
     /// </summary>
     public class Peli
     {
-        public List<Paikka> paikat;
+        public Paikat paikat;
 
         public Peli()
         {
-            paikat = new List<Paikka>();
+            paikat = new Paikat();
         }
 
         public void AloitaPeli(int tavoiteOnnellisuus, int maxPaivat)
@@ -29,39 +29,54 @@ namespace Elamasimu
                     TulostaPelaajanOminaisuudet(pelaaja);
                     Console.WriteLine("Minne haluat mennä?");
                     TulostaPaikat(paikat);
-                    Paikka paikka = ValitsePaikka(paikat);
-                    TulostaAktiviteetit(paikka);
-                    Aktiviteetti aktiviteetti = ValitseAktiviteetti(paikka);
+
+                    while (paiva.tuntejaJaljella > 0)
+                    {
+                        Paikka paikka = ValitsePaikka(paikat);
+                        TulostaAktiviteetit(paikka);
+                        ConsoleKeyInfo ckiAkt = Console.ReadKey();
+                        if (ckiAkt.Key == ConsoleKey.Escape) break; // TODO: Tähän joku nätimpi poistuminen
+                        Aktiviteetti aktiviteetti = paikka.lyhytValinnatJaAktiviteetit[ckiAkt.KeyChar];
+                        ToteutaAktiviteetti(aktiviteetti);
+                    }
                 }
+                Console.WriteLine("Onneksi olkoon, olet täydellisen onnellinen!");
             }
-            Console.WriteLine("Onneksi olkoon, olet täydellisen onnellinen!");
-        }
 
-        private void TulostaAktiviteetit(Paikka paikka)
-        {
-            foreach (var aktiviteetti in paikka.aktiviteetit)
-            {
-
-            }
-        }
-
-        private Aktiviteetti ValitseAktiviteetti(Paikka valittuPaikka)
-        {
-            Console.WriteLine("Poistu [ESC]");
-            Console.Write("> ");
-            return null;
-        }
-
-        private Paikka ValitsePaikka(List<Paikka> paikat)
+        private void ToteutaAktiviteetti(Aktiviteetti aktiviteetti)
         {
             throw new NotImplementedException();
         }
 
-        private void TulostaPaikat(List<Paikka> paikat)
+        private void TulostaAktiviteetit(Paikka paikka)
         {
-            foreach (var paikka in paikat)
+            foreach (var aktiviteetti in paikka.lyhytValinnatJaAktiviteetit)
             {
-                Console.WriteLine(paikka.nimi + " [" + paikka.lyhytvalinta + "]");
+                Console.WriteLine(aktiviteetti.Value.kuvaus + " [" + aktiviteetti.Key + "]");
+            }
+        }
+
+        /// <summary>
+        /// Tulosta kehote ja valitse paikka
+        /// </summary>
+        /// <param name="paikat"></param>
+        /// <returns>Paikka</returns>
+        private Paikka ValitsePaikka(Paikat paikat)
+        {
+            while (true)
+            {
+                Console.Write("> ");
+                ConsoleKeyInfo ckiPaikka = Console.ReadKey();
+                if (!paikat.lyhytvalinnatJaPaikat.ContainsKey(ckiPaikka.KeyChar)) continue;
+                return paikat.lyhytvalinnatJaPaikat[ckiPaikka.KeyChar];
+            }
+        }
+
+        private void TulostaPaikat(Paikat paikat)
+        {
+            foreach (var paikka in paikat.lyhytvalinnatJaPaikat)
+            {
+                Console.WriteLine(paikka.Value + " [" + paikka.Key + "]");
             }
         }
 

@@ -4,6 +4,7 @@ namespace Elamasimu
 {
     public class Aktiviteetti
     {
+        public string kuvaus;
         public int aika;
         public int hinta;
         public int fyysisyys;
