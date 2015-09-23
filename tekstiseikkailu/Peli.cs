@@ -21,7 +21,7 @@ namespace Elamasimu
         public void AloitaPeli(int tavoiteOnnellisuus, int maxPaivat)
         {
             Pelaaja pelaaja = new Pelaaja(PyydaNimiSyote("Pelaajan nimi?"));
-            while (pelaaja.ominaisuudet["Onnellisuus"] < tavoiteOnnellisuus)
+            while (pelaaja.Onnellisuus < tavoiteOnnellisuus)
             {
                 Paiva paiva = new Paiva();
                 while (paiva.tuntejaJaljella > 0)
@@ -95,7 +95,7 @@ namespace Elamasimu
 
         public void TulostaPelaajanOminaisuudet(Pelaaja pelaaja)
         {
-            String tuloste = "Pelaaja: " + pelaaja.nimi + " Raha: " + pelaaja.ominaisuudet["Raha"];
+            String tuloste = "Pelaaja: " + pelaaja.nimi + " Raha: " + pelaaja.ominaisuudet.Raha;
             Console.WriteLine(tuloste);
         }
     }

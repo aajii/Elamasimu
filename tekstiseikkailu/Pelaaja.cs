@@ -9,10 +9,20 @@ namespace Elamasimu
     public class Pelaaja
     {
         public string nimi;
-        public int onnellisuus;
-        internal Ominaisuudet ominaisuudet;
-        public List<Esine> esineet;
 
+        /// <summary>
+        /// Onnellisuus.
+        /// </summary>
+        public int Onnellisuus
+        {
+            get;
+            private set;
+        }
+
+
+        internal Ominaisuudet ominaisuudet;
+
+        public List<Esine> esineet;
 
         /// <summary>
         /// Ne paikat, joihin hahmolla on pääsy.
@@ -24,11 +34,9 @@ namespace Elamasimu
         public Pelaaja(string nimi)
         {
             this.nimi = nimi;
-            this.ominaisuudet = new Dictionary<string, int>()
-            {
-            };
-
             this.paikatJohonPaasy = new Dictionary<Paikka, bool>();
+            this.ominaisuudet = new Ominaisuudet(this);
+                
         }
 
         public void KaytaEsinetta(int kayttoVahennys)
