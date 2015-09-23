@@ -4,14 +4,17 @@ namespace Elamasimu
 {
     public class Paikka
     {
-        public string nimi;
+        /// <summary>
+        /// Nimi.
+        /// </summary>
+        public string Nimi { get; private set; }
+
 
         /// <summary>
-        /// Mitä kirjainta painamalla pääsee paikkaan
+        /// Kauanko aikaa paikassa voi enintään olla.
+        /// TODO: Tarvitaanko?
         /// </summary>
-        public char lyhytvalinta; // TODO: Ei pitäisi sekoittaa kontrollien toimintaa tähän. Paranna.
-
-        public int maxAika;
+        public int MaxAika { get; private set; }
         
         /// <summary>
         /// Täytyykö paikkaan hakea pääsyä ennen kuin 
@@ -19,12 +22,12 @@ namespace Elamasimu
         /// Esimerkiksi työpaikalla ei voi tehdä töitä,
         /// jos ei ole töissä siellä.
         /// </summary>
-        public bool pitaakoPaikkaanHakea;
+        public bool PitaakoPaikkaanHakea { get; private set; }
 
         /// <summary>
         /// Mitä painamalla pääsee mihinkin aktiviteettiin.
         /// </summary>
-        public Dictionary<char, Aktiviteetti> lyhytValinnatJaAktiviteetit;
+        public Dictionary<char, Aktiviteetti> LyhytValinnatJaAktiviteetit { get; private set; }
     }
 
 }
