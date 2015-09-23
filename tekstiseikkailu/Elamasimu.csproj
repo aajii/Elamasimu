@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Aktiviteetti.cs" />
     <Compile Include="Esine.cs" />
+    <Compile Include="Ominaisuudet.cs" />
     <Compile Include="Paikat.cs" />
     <Compile Include="Pelaaja.cs" />
     <Compile Include="Paikka.cs" />

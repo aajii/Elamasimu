@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Elamasimu
 {
@@ -8,7 +9,9 @@ namespace Elamasimu
     public class Pelaaja
     {
         public string nimi;
-        public Dictionary<string, int> ominaisuudet; 
+        public int onnellisuus;
+        internal Ominaisuudet ominaisuudet;
+        public List<Esine> esineet;
 
 
         /// <summary>
@@ -23,36 +26,24 @@ namespace Elamasimu
             this.nimi = nimi;
             this.ominaisuudet = new Dictionary<string, int>()
             {
-                { "Raha", 0 },
-                {  "Aly", 0 },
-                {  "Fyysisyys", 0 },
-                { "Sosiaalisuus", 0 },
-                { "Ruokakyllaisyys", 0 }
             };
 
             this.paikatJohonPaasy = new Dictionary<Paikka, bool>();
         }
-         /*   
-            public int onnellisuus; // tarvitaanko tätä vai lasketaanko muista ?
 
-        public int raha;
+        public void KaytaEsinetta(int kayttoVahennys)
+        {
 
-        public int aly;
-
+        }
+    
         /// <summary>
-        /// Fyysinen kunto ja ulkonäkö.
+        /// Laske onnellisuus
         /// </summary>
-        public int fyysisyys;
-
-        public int sosiaalisuus;
-
-        /// <summary>
-        /// Onko hahmolla nälkä (pienempi arvo)
-        /// vai ei (suurempi arvo)
-        /// </summary>
-        public int ruokaKyllaisyys;
-        */
+        internal void LaskeOnnellisuus()
+        {
+            // Tähän onnellisuuden laskukaava
+            throw new NotImplementedException();
+        }
     }
-
 }
 

@@ -37,20 +37,25 @@ namespace Elamasimu
                         ConsoleKeyInfo ckiAkt = Console.ReadKey();
                         if (ckiAkt.Key == ConsoleKey.Escape) break; // TODO: Tähän joku nätimpi poistuminen
                         Aktiviteetti aktiviteetti = paikka.lyhytValinnatJaAktiviteetit[ckiAkt.KeyChar];
-                        ToteutaAktiviteetti(aktiviteetti);
+                        ToteutaAktiviteetti(pelaaja, aktiviteetti);
                     }
                 }
                 Console.WriteLine("Onneksi olkoon, olet täydellisen onnellinen!");
             }
         }
 
-        private void ToteutaAktiviteetti(Aktiviteetti aktiviteetti)
+        private void ToteutaAktiviteetti(Pelaaja pelaaja, Aktiviteetti aktiviteetti)
         {
+            
+
             throw new NotImplementedException();
         }
 
         private void TulostaAktiviteetit(Paikka paikka)
         {
+            Console.WriteLine("Olet paikassa: " + paikka.nimi);
+            Console.WriteLine("Valitse seuraavista: ");
+
             foreach (var aktiviteetti in paikka.lyhytValinnatJaAktiviteetit)
             {
                 Console.WriteLine(aktiviteetti.Value.kuvaus + " [" + aktiviteetti.Key + "]");
