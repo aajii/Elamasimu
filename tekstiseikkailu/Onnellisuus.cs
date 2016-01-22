@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 
 namespace Elamasimu
 {
-    interface OnnellisuudenKomponentti
+    class OnnellisuudenKomponentti
     {
-        virtual void MuutaArvoa()
-        {
+        //virtual void MuutaArvoa()
+        //{
 
-        }
+        //}
     }
+
+    class Raha : OnnellisuudenKomponentti
+    {
+
+    }
+
 
     static class Onnellisuus
     {
