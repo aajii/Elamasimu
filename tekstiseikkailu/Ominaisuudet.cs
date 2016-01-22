@@ -10,6 +10,7 @@ namespace Elamasimu
     {
         private Pelaaja pelaaja;
 
+
         int raha = 0;
         int aly = 0;
         int fyysisyys = 0;

@@ -34,10 +34,14 @@ namespace Elamasimu
                     {
                         Paikka paikka = ValitsePaikka(paikat);
                         TulostaAktiviteetit(paikka);
-                        ConsoleKeyInfo ckiAkt = Console.ReadKey();
-                        if (ckiAkt.Key == ConsoleKey.Escape) break; // TODO: Tähän joku nätimpi poistuminen
-                        Aktiviteetti aktiviteetti = paikka.LyhytValinnatJaAktiviteetit[ckiAkt.KeyChar];
-                        ToteutaAktiviteetti(pelaaja, aktiviteetti);
+                        int paikassaVietettyAika = 0;
+                        while (paikassaVietettyAika < paikka.MaxAika)
+                        {
+                            ConsoleKeyInfo ckiAkt = Console.ReadKey();
+                            if (ckiAkt.Key == ConsoleKey.Escape) break; // TODO: Tähän joku nätimpi poistuminen
+                            Aktiviteetti aktiviteetti = paikka.LyhytValinnatJaAktiviteetit[ckiAkt.KeyChar];
+                            ToteutaAktiviteetti(pelaaja, aktiviteetti);
+                        }
                     }
                 }
                 Console.WriteLine("Onneksi olkoon, olet täydellisen onnellinen!");

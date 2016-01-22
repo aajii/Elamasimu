@@ -10,6 +10,15 @@ namespace Elamasimu
         public int fyysisyys;
         public int aly;
         public int sosiaalisuus;
-        public List<Esine> vaaditutEsineet;
+        public List<Saavutus> vaaditutSaavutukset;
+
+        public Aktiviteetti(List<Saavutus> vaaditutSaavutukset, params int[])
+        {
+
+        }
+
     }
+
+
+
 }

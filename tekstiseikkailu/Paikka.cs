@@ -9,7 +9,6 @@ namespace Elamasimu
         /// </summary>
         public string Nimi { get; private set; }
 
-
         /// <summary>
         /// Kauanko aikaa paikassa voi enintään olla.
         /// TODO: Tarvitaanko?
@@ -26,6 +25,7 @@ namespace Elamasimu
 
         /// <summary>
         /// Mitä painamalla pääsee mihinkin aktiviteettiin.
+        /// TODO: Huono paikka koska liittyy kontrolleihin?
         /// </summary>
         public Dictionary<char, Aktiviteetti> LyhytValinnatJaAktiviteetit { get; private set; }
     }

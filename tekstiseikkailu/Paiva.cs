@@ -9,7 +9,5 @@ namespace Elamasimu
     public class Paiva
     {
         public int tuntejaJaljella;
-
-        
     }
 }
